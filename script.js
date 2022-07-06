@@ -56,10 +56,11 @@ const check = (input) => {
 
 const checkSign = (answer) => {
 	const arr = answer.innerHTML.split(" ");
-	if(arr[1] && !arr[2]){
-		return true
-	}return false
-}
+	if (arr[1] && !arr[2] && sign) {
+		return true;
+	}
+	return false;
+};
 
 btn0.addEventListener("click", () => {
 	const checker = check(input);
@@ -71,9 +72,9 @@ btn0.addEventListener("click", () => {
 			input.value = 0;
 			dot = false;
 			answer.innerHTML = "";
-      sign = ""
+			sign = "";
 			clickCount = 0;
-		} else if(checkSign(answer)){
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 0}`;
 		}
 	}
@@ -87,13 +88,13 @@ btn1.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 1;
 			dot = false;
 			answer.innerHTML = "";
 			clickCount = 0;
-      sign = ""
-		} else if(checkSign(answer)) {
+			sign = "";
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 1}`;
 		}
 	}
@@ -106,13 +107,13 @@ btn2.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 2;
 			dot = false;
 			answer.innerHTML = "";
-      sign = ""
+			sign = "";
 			clickCount = 0;
-		}  else if(checkSign(answer)){
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 2}`;
 		}
 	}
@@ -125,13 +126,13 @@ btn3.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 3;
 			dot = false;
 			answer.innerHTML = "";
-      sign = ""
+			sign = "";
 			clickCount = 0;
-		}  else if(checkSign(answer)){
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 3}`;
 		}
 	}
@@ -144,13 +145,13 @@ btn4.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 4;
 			dot = false;
 			answer.innerHTML = "";
-      sign = ""
+			sign = "";
 			clickCount = 0;
-		}  else if(checkSign(answer)) {
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 4}`;
 		}
 	}
@@ -163,13 +164,13 @@ btn5.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 5;
 			dot = false;
 			answer.innerHTML = "";
-      sign = ""
+			sign = "";
 			clickCount = 0;
-		} else if(checkSign(answer)){
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 5}`;
 		}
 	}
@@ -182,13 +183,13 @@ btn6.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 6;
 			dot = false;
 			answer.innerHTML = "";
 			clickCount = 0;
-      sign = ""
-		} else if(checkSign(answer)) {
+			sign = "";
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 6}`;
 		}
 	}
@@ -201,13 +202,13 @@ btn7.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 7;
 			dot = false;
 			answer.innerHTML = "";
-      sign = ""
+			sign = "";
 			clickCount = 0;
-		}  else if(checkSign(answer)) {
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 7}`;
 		}
 	}
@@ -221,13 +222,13 @@ btn8.addEventListener("click", () => {
 			input.value = "";
 			clear = false;
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 8;
 			dot = false;
 			answer.innerHTML = "";
 			clickCount = 0;
-      sign = ""
-		} else if(checkSign(answer)){
+			sign = "";
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 8}`;
 		}
 	}
@@ -240,13 +241,13 @@ btn9.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (!checkSign(answer)) {
+		if (!checkSign(answer)) {
 			input.value = 9;
 			dot = false;
 			answer.innerHTML = "";
-			sign = ""
+			sign = "";
 			clickCount = 0;
-		}  else if(checkSign(answer)) {
+		} else if (checkSign(answer)) {
 			input.value = `${input.value + 9}`;
 		}
 	}
@@ -311,7 +312,7 @@ deleteBtn.addEventListener("click", () => {
 equalBtn.addEventListener("click", () => {
 	if (sign == "") {
 		answer.innerHTML = `${input.value} =`;
-    input.value
+		input.value;
 	} else if (clickCount < 1) {
 		b = +input.value;
 		answer.innerHTML += ` ${input.value} =`;
@@ -332,9 +333,8 @@ equalBtn.addEventListener("click", () => {
 	}
 });
 
-
 percentageBtn.addEventListener("click", () => {
-  answer.innerHTML = `${input.value}%`
-  input.value = +input.value / 100
-  clickCount++;
-})
+	answer.innerHTML = `${input.value}%`;
+	input.value = +input.value / 100;
+	clickCount++;
+});
