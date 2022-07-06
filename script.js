@@ -54,19 +54,26 @@ const check = (input) => {
 	}
 };
 
+const checkSign = (answer) => {
+	const arr = answer.innerHTML.split(" ");
+	if(arr[1] && !arr[2]){
+		return true
+	}return false
+}
+
 btn0.addEventListener("click", () => {
 	const checker = check(input);
 	if (checker) {
 		if (clear) {
 			input.value = "";
 		}
-		if (clickCount >= 1) {
+		if (!checkSign(answer)) {
 			input.value = 0;
 			dot = false;
 			answer.innerHTML = "";
       sign = ""
 			clickCount = 0;
-		} else {
+		} else if(checkSign(answer)){
 			input.value = `${input.value + 0}`;
 		}
 	}
@@ -80,13 +87,13 @@ btn1.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 1;
 			dot = false;
 			answer.innerHTML = "";
 			clickCount = 0;
       sign = ""
-		} else if(clickCount < 1) {
+		} else if(checkSign(answer)) {
 			input.value = `${input.value + 1}`;
 		}
 	}
@@ -99,13 +106,13 @@ btn2.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 2;
 			dot = false;
 			answer.innerHTML = "";
       sign = ""
 			clickCount = 0;
-		}  else if(clickCount < 1){
+		}  else if(checkSign(answer)){
 			input.value = `${input.value + 2}`;
 		}
 	}
@@ -118,13 +125,13 @@ btn3.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 3;
 			dot = false;
 			answer.innerHTML = "";
       sign = ""
 			clickCount = 0;
-		}  else if(clickCount < 1){
+		}  else if(checkSign(answer)){
 			input.value = `${input.value + 3}`;
 		}
 	}
@@ -137,13 +144,13 @@ btn4.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 4;
 			dot = false;
 			answer.innerHTML = "";
       sign = ""
 			clickCount = 0;
-		}  else if(clickCount < 1) {
+		}  else if(checkSign(answer)) {
 			input.value = `${input.value + 4}`;
 		}
 	}
@@ -156,13 +163,13 @@ btn5.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 5;
 			dot = false;
 			answer.innerHTML = "";
       sign = ""
 			clickCount = 0;
-		} else if(clickCount < 1){
+		} else if(checkSign(answer)){
 			input.value = `${input.value + 5}`;
 		}
 	}
@@ -175,13 +182,13 @@ btn6.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 6;
 			dot = false;
 			answer.innerHTML = "";
 			clickCount = 0;
       sign = ""
-		} else if(clickCount < 1) {
+		} else if(checkSign(answer)) {
 			input.value = `${input.value + 6}`;
 		}
 	}
@@ -194,13 +201,13 @@ btn7.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 7;
 			dot = false;
 			answer.innerHTML = "";
       sign = ""
 			clickCount = 0;
-		}  else if(clickCount < 1) {
+		}  else if(checkSign(answer)) {
 			input.value = `${input.value + 7}`;
 		}
 	}
@@ -214,13 +221,13 @@ btn8.addEventListener("click", () => {
 			input.value = "";
 			clear = false;
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 8;
 			dot = false;
 			answer.innerHTML = "";
 			clickCount = 0;
       sign = ""
-		} else if(clickCount < 1){
+		} else if(checkSign(answer)){
 			input.value = `${input.value + 8}`;
 		}
 	}
@@ -233,13 +240,13 @@ btn9.addEventListener("click", () => {
 		if (clear) {
 			input.value = "";
 		}
-    if (clickCount >= 1) {
+    if (!checkSign(answer)) {
 			input.value = 9;
 			dot = false;
-      sign = ""
 			answer.innerHTML = "";
+			sign = ""
 			clickCount = 0;
-		}  else if(clickCount < 1) {
+		}  else if(checkSign(answer)) {
 			input.value = `${input.value + 9}`;
 		}
 	}
