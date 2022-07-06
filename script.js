@@ -34,7 +34,7 @@ const calc = (a, b, sign) => {
 	} else if (sign == "*") {
 		return a * b;
 	} else if (sign == "+") {
-		return a + b;
+		return +a + +b;
 	} else if (sign == "-") {
 		return a - b;
 	} else if (sign == "") {
@@ -55,204 +55,59 @@ const check = (input) => {
 };
 
 const checkSign = (answer) => {
-	const arr = answer.innerHTML.split(" ");
-	if (arr[1] && !arr[2] && sign) {
+	let split = answer.innerHTML.split(" ");
+	if (split.length == 4) {
 		return true;
 	}
 	return false;
 };
 
-btn0.addEventListener("click", () => {
+const checkButton = (num) => {
 	const checker = check(input);
 	if (checker) {
 		if (clear) {
 			input.value = "";
 		}
-		if (!checkSign(answer)) {
-			input.value = 0;
-			dot = false;
-			answer.innerHTML = "";
-			sign = "";
-			clickCount = 0;
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 0}`;
+		if (checkSign(answer)) {
+			Clear();
+			input.value += `${num}`;
+		} else if (!checkSign(answer)) {
+			input.value += `${num}`;
 		}
 	}
 
+	checkSign(answer);
 	clickCount = 0;
-});
+};
 
-btn1.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 1;
-			dot = false;
-			answer.innerHTML = "";
-			clickCount = 0;
-			sign = "";
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 1}`;
-		}
-	}
-	clickCount = 0;
-});
+const evalSign = (val) => {
+	sign = val;
+	answer.innerHTML = `${input.value} ${sign}`;
+	a = +input.value;
+	input.value = "";
+	dot = false;
+};
 
-btn2.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 2;
-			dot = false;
-			answer.innerHTML = "";
-			sign = "";
-			clickCount = 0;
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 2}`;
-		}
-	}
+const Clear = () => {
+	dot = false;
+	input.value = "";
+	answer.innerHTML = "";
+	a = 0;
+	b = 0;
 	clickCount = 0;
-});
+	ans = 0;
+};
 
-btn3.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 3;
-			dot = false;
-			answer.innerHTML = "";
-			sign = "";
-			clickCount = 0;
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 3}`;
-		}
-	}
-	clickCount = 0;
-});
-
-btn4.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 4;
-			dot = false;
-			answer.innerHTML = "";
-			sign = "";
-			clickCount = 0;
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 4}`;
-		}
-	}
-	clickCount = 0;
-});
-
-btn5.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 5;
-			dot = false;
-			answer.innerHTML = "";
-			sign = "";
-			clickCount = 0;
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 5}`;
-		}
-	}
-	clickCount = 0;
-});
-
-btn6.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 6;
-			dot = false;
-			answer.innerHTML = "";
-			clickCount = 0;
-			sign = "";
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 6}`;
-		}
-	}
-	clickCount = 0;
-});
-
-btn7.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 7;
-			dot = false;
-			answer.innerHTML = "";
-			sign = "";
-			clickCount = 0;
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 7}`;
-		}
-	}
-	clickCount = 0;
-});
-
-btn8.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-			clear = false;
-		}
-		if (!checkSign(answer)) {
-			input.value = 8;
-			dot = false;
-			answer.innerHTML = "";
-			clickCount = 0;
-			sign = "";
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 8}`;
-		}
-	}
-	clickCount = 0;
-});
-
-btn9.addEventListener("click", () => {
-	const checker = check(input);
-	if (checker) {
-		if (clear) {
-			input.value = "";
-		}
-		if (!checkSign(answer)) {
-			input.value = 9;
-			dot = false;
-			answer.innerHTML = "";
-			sign = "";
-			clickCount = 0;
-		} else if (checkSign(answer)) {
-			input.value = `${input.value + 9}`;
-		}
-	}
-	clickCount = 0;
-});
+btn0.addEventListener("click", () => checkButton(0));
+btn1.addEventListener("click", () => checkButton(1));
+btn2.addEventListener("click", () => checkButton(2));
+btn3.addEventListener("click", () => checkButton(3));
+btn4.addEventListener("click", () => checkButton(4));
+btn5.addEventListener("click", () => checkButton(5));
+btn6.addEventListener("click", () => checkButton(6));
+btn7.addEventListener("click", () => checkButton(7));
+btn8.addEventListener("click", () => checkButton(8));
+btn9.addEventListener("click", () => checkButton(9));
 
 dotBtn.addEventListener("click", () => {
 	const checker = check(input);
@@ -261,47 +116,16 @@ dotBtn.addEventListener("click", () => {
 	}
 });
 
-clearBtn.addEventListener("click", () => {
-	dot = false;
-	input.value = "";
-	answer.innerHTML = "";
-	a = 0;
-	b = 0;
-	clickCount = 0;
-	ans = 0;
-});
+clearBtn.addEventListener("click", () => Clear());
 
 negateBtn.addEventListener("click", () => {
 	input.value = -+input.value;
 });
 
-divideBtn.addEventListener("click", () => {
-	sign = "/";
-	answer.innerHTML = `${input.value} ÷`;
-	a = +input.value;
-	input.value = "";
-});
-
-multiplyBtn.addEventListener("click", () => {
-	answer.innerHTML = `${input.value} x`;
-	a = +input.value;
-	sign = "*";
-	input.value = "";
-});
-
-addBtn.addEventListener("click", () => {
-	answer.innerHTML = `${input.value} +`;
-	a = +input.value;
-	sign = "+";
-	input.value = "";
-});
-
-subBtn.addEventListener("click", () => {
-	answer.innerHTML = `${input.value} -`;
-	a = +input.value;
-	sign = "-";
-	input.value = "";
-});
+divideBtn.addEventListener("click", () => evalSign("/"));
+addBtn.addEventListener("click", () => evalSign("+"));
+subBtn.addEventListener("click", () => evalSign("-"));
+multiplyBtn.addEventListener("click", () => evalSign("*"));
 
 deleteBtn.addEventListener("click", () => {
 	const arr = input.value.split("");
@@ -321,12 +145,10 @@ equalBtn.addEventListener("click", () => {
 		clickCount++;
 	} else if (b && clickCount >= 1) {
 		const arr = answer.innerHTML.split(" ");
-		// console.log(arr)
 		arr[0] = input.value;
 		arr.join(" ");
 		a = arr[0];
 		b = arr[2];
-		// console.log(arr.join(" "))
 		answer.innerHTML = arr.join(" ");
 		let ans = calc(a, b, sign);
 		input.value = ans;
